@@ -1,5 +1,5 @@
-import React from 'react'
-import Image from 'next/image'
+import React from 'react';
+import Image from 'next/image';
 
 const projects = [
     {
@@ -24,29 +24,28 @@ const projects = [
 
 function Projects() {
     return (
-        <div>
+        <div id="Work" className="py-16 px-4 md:px-10">
 
-            <div className='flex justify-around items-center my-28'>
+            <div className='flex flex-col md:flex-row justify-between items-center my-8'>
                 <div>
-                    <h4 className='text-base text-orange-500'>Work</h4>
-                    <h1 className='text-3xl font-bold'>A selection of recent projects</h1>
+                    <h4 className='text-lg text-orange-500'>Work</h4>
+                    <h2 className='text-4xl font-bold'>A selection of recent projects</h2>
                 </div>
-                <p className='text-sm text-slate-700 max-w-96'>
+                <p className='text-sm text-slate-700 max-w-md md:max-w-xl mt-4 md:mt-0'>
                     I have been passionate about these projects, helping my clients achieve their vision and assisting them with their next steps.
                 </p>
             </div>
 
-            <div className='grid grid-cols-3 gap-10 max-w-screen-xl'>
+            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 max-w-screen-xl mx-auto'>
                 {projects.map((project) => (
                     <a
                         href={project.link}
                         target='_blank'
                         rel='noopener noreferrer'
-                        className='  bg-slate-600 border border-black
-                         ease-in cursor-pointer flex flex-col p-4 hover:scale-105 transition duration-200'
+                        className='bg-slate-600 border border-black ease-in cursor-pointer flex flex-col p-4 hover:scale-105 transition duration-200'
                         key={project.name}
                     >
-                        <div className='relative w-64 h-64 mx-auto'>
+                        <div className='relative w-full h-64 mx-auto'>
                             <Image
                                 src={project.photo}
                                 alt={project.name}
@@ -55,6 +54,8 @@ function Projects() {
                                 className='mx-auto'
                             />
                         </div>
+                        <h3 className='text-xl font-semibold text-white mt-4'>{project.name}</h3>
+                        <p className='text-sm text-slate-300 mt-1'>{project.description}</p>
                     </a>
                 ))}
             </div>
